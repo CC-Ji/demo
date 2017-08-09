@@ -10,8 +10,8 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:applicationContext.xml,
-			classpath*:ws-server.xml,
-			classpath*:ws-client.xml
+			classpath*:cfx-server.xml,
+			classpath*:cfx-client.xml
 		</param-value>
 	</context-param>
 	<!-- log4j配制文件地址 -->
