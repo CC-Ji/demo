@@ -12,7 +12,7 @@ public class WscxfTest {
     
     @Before
     public void init(){
-        context = new ClassPathXmlApplicationContext("classpath:ws-server.xml","classpath:ws-client.xml");
+        context = new ClassPathXmlApplicationContext("classpath:cfx-server.xml","classpath:cfx-client.xml");
         System.out.println("context init result : " + (context!=null? true:false) );
     }
     
