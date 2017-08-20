@@ -5,7 +5,7 @@ public class WelcomeWSImpl implements WelcomeWS {
 	@Override
 	public String welcomeMessage(String message) {
 		
-		return "ög”≠" + message;
+		return "ª∂”≠" + message;
 	}
 
 }

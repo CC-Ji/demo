@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -11,6 +13,10 @@
 	http://www.springframework.org/schema/context/spring-context-4.1.xsd
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
 	http://www.springframework.org/schema/util
 	http://www.springframework.org/schema/util/spring-util-4.1.xsd">
 <!--   <bean id="dataSource" 
@@ -44,6 +50,25 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	    <property name="dataSource"><ref bean="dataSource"/></property>
 	</bean>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="del*" read-only="false" propagation="REQUIRED"/><!-- 增、删、改必须以事物的方式进行，可以防止操作未完成数据的丢失！ -->
+			<tx:method name="insert*" propagation="REQUIRED" read-only="false"/>
+			<tx:method name="update*" propagation="REQUIRED" read-only="false"/>
+			<tx:method name="add*" propagation="REQUIRED" read-only="false"/>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" /><!-- 非事物 -->
+			<tx:method name="load*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="list*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="exists" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 配置哪些类哪些方法具有事务,采用AOP   proxy-target-class="true"如果去掉的话就必须放弃action中ActionSupport的继承   -->
+	<aop:config>
+		<!-- 在daoimpl中方法必须以del、insert、update开头的方法才能够进行写入，其他的方法只能进行读取！-->
+		<aop:pointcut id="allMethod" expression="execution(public * com.ccji.demo.*.*.*(..))" />
+		<aop:advisor pointcut-ref="allMethod" advice-ref="txAdvice" />
+	</aop:config>
 	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.ansitech.web.orm.mapper"/>
