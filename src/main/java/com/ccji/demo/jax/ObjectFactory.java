@@ -7,7 +7,7 @@ import javax.xml.namespace.QName;
 
 /**
  * This object contains factory methods for each Java content interface and Java
- * element interface generated in the com.ccji.demo.cfxclient package.
+ * element interface generated in the com.ccji.demo.jax package.
  * <p>
  * An ObjectFactory allows you to programatically construct new instances of the
  * Java representation for XML content. The Java representation of XML content
@@ -20,13 +20,13 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
 	private final static QName _SayHello_QNAME = new QName(
-			"http://webservice.ccji.com/", "sayHello");
+			"http://jax.webservice.ccji.com/", "sayHello");
 	private final static QName _SayHelloResponse_QNAME = new QName(
-			"http://webservice.ccji.com/", "sayHelloResponse");
+			"http://jax.webservice.ccji.com/", "sayHelloResponse");
 
 	/**
 	 * Create a new ObjectFactory that can be used to create new instances of
-	 * schema derived classes for package: com.ccji.demo.cfxclient
+	 * schema derived classes for package: com.ccji.demo.jax
 	 * 
 	 */
 	public ObjectFactory() {
@@ -53,7 +53,7 @@ public class ObjectFactory {
 	 * {@code >}
 	 * 
 	 */
-	@XmlElementDecl(namespace = "http://webservice.ccji.com/", name = "sayHello")
+	@XmlElementDecl(namespace = "http://jax.webservice.ccji.com/", name = "sayHello")
 	public JAXBElement<SayHello> createSayHello(SayHello value) {
 		return new JAXBElement<SayHello>(_SayHello_QNAME, SayHello.class, null,
 				value);
@@ -64,7 +64,7 @@ public class ObjectFactory {
 	 * {@link SayHelloResponse }{@code >}
 	 * 
 	 */
-	@XmlElementDecl(namespace = "http://webservice.ccji.com/", name = "sayHelloResponse")
+	@XmlElementDecl(namespace = "http://jax.webservice.ccji.com/", name = "sayHelloResponse")
 	public JAXBElement<SayHelloResponse> createSayHelloResponse(
 			SayHelloResponse value) {
 		return new JAXBElement<SayHelloResponse>(_SayHelloResponse_QNAME,

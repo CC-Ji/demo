@@ -23,13 +23,12 @@ import javax.xml.ws.WebServiceClient;
  * </p>
  * 
  */
-@WebServiceClient(name = "HelloServiceService", targetNamespace = "http://webservice.ccji.com/", wsdlLocation = "http://localhost:8080/helloService?wsdl")
+@WebServiceClient(name = "HelloServiceService", targetNamespace = "http://jax.webservice.ccji.com/", wsdlLocation = "http://localhost:8080/helloService?wsdl")
 public class HelloServiceService extends Service {
 
 	private final static URL HELLOSERVICESERVICE_WSDL_LOCATION;
 	private final static Logger logger = Logger
-			.getLogger(com.ccji.demo.jax.HelloServiceService.class
-					.getName());
+			.getLogger(com.ccji.demo.jax.HelloServiceService.class.getName());
 
 	static {
 		URL url = null;
@@ -51,7 +50,7 @@ public class HelloServiceService extends Service {
 
 	public HelloServiceService() {
 		super(HELLOSERVICESERVICE_WSDL_LOCATION, new QName(
-				"http://webservice.ccji.com/", "HelloServiceService"));
+				"http://jax.webservice.ccji.com/", "HelloServiceService"));
 	}
 
 	/**
@@ -60,7 +59,7 @@ public class HelloServiceService extends Service {
 	 */
 	@WebEndpoint(name = "HelloServicePort")
 	public HelloService getHelloServicePort() {
-		return super.getPort(new QName("http://webservice.ccji.com/",
+		return super.getPort(new QName("http://jax.webservice.ccji.com/",
 				"HelloServicePort"), HelloService.class);
 	}
 

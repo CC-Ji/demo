@@ -12,7 +12,7 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.0
  * 
  */
-@WebService(name = "HelloService", targetNamespace = "http://webservice.ccji.com/")
+@WebService(name = "HelloService", targetNamespace = "http://jax.webservice.ccji.com/")
 public interface HelloService {
 
 	/**
@@ -22,8 +22,8 @@ public interface HelloService {
 	 */
 	@WebMethod
 	@WebResult(targetNamespace = "")
-	@RequestWrapper(localName = "sayHello", targetNamespace = "http://webservice.ccji.com/", className = "com.ccji.demo.cfxclient.SayHello")
-	@ResponseWrapper(localName = "sayHelloResponse", targetNamespace = "http://webservice.ccji.com/", className = "com.ccji.demo.cfxclient.SayHelloResponse")
+	@RequestWrapper(localName = "sayHello", targetNamespace = "http://jax.webservice.ccji.com/", className = "com.ccji.demo.jax.SayHello")
+	@ResponseWrapper(localName = "sayHelloResponse", targetNamespace = "http://jax.webservice.ccji.com/", className = "com.ccji.demo.jax.SayHelloResponse")
 	public String sayHello(
 			@WebParam(name = "arg0", targetNamespace = "") String arg0);
 
