@@ -10,7 +10,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:applicationContext.xml,
-			classpath*:cfx-server.xml,
 			classpath*:cfx-client.xml
 		</param-value>
 	</context-param>
@@ -42,16 +41,6 @@
 	<servlet-mapping>
 		<servlet-name>TestServlet</servlet-name>
 		<url-pattern>/servlet/TestServlet</url-pattern>
-	</servlet-mapping>
-	<!-- CXF监听器 -->
-	<servlet>
-		<servlet-name>cxf</servlet-name>
-		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>cxf</servlet-name>
-		<url-pattern>/ws/*</url-pattern>
 	</servlet-mapping>
 	
 	<filter>
