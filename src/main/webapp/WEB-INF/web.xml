@@ -10,7 +10,9 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:applicationContext.xml,
-			classpath*:cfx-client.xml
+			classpath*:spring-mvc.xml,
+			classpath*:cfx-client.xml,
+			classpath*:hessian-client.xml
 		</param-value>
 	</context-param>
 	<!-- log4j配制文件地址 -->

@@ -9,20 +9,19 @@ public class SimpleDaemons implements Runnable {
 		try {
 			while (true) {
 				TimeUnit.MILLISECONDS.sleep(100);
-				System.out.println(Thread.currentThread());
+				System.out.println(Thread.currentThread() + " " + this);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-
 	public static void main(String[] args) throws Exception{
-		for(int i = 0; i < 10; i++){
+		for(int i=0;i<10;i++){
 			Thread daemon = new Thread(new SimpleDaemons());
 			daemon.setDaemon(true);
 			daemon.start();
 		}
-		System.out.print("All deamons started");
+		System.out.println("All daemons started!");
 		TimeUnit.MILLISECONDS.sleep(175);
 	}
 }

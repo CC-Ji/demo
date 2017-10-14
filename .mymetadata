@@ -3,7 +3,7 @@
   type="WEB"
   name="demo"
   id="myeclipse.1501165187514"
-  context-root="/ws-cxf-core"
+  context-root="/demo"
   j2ee-spec="6.0"
   archive="demo.war">
   <attributes>
